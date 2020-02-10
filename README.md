@@ -1,2 +1,3 @@
 # Practice coding
-Deep learning & Maching Learning Modeling 
+- Data preprocessing
+- Deep learning & Maching Learning Modeling 
