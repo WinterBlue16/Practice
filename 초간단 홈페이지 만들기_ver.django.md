@@ -93,7 +93,7 @@ $ python manage.py runserver # 수정한 웹페이지 확인, 디버깅
 
 javascript의 경우 똑같은 경로에 style.js파일을 만들어 저장하고 마찬가지로 바꾸고 싶은 스타일에 맞는 코드로 파일을 채워주면 된다.
 
-### 2.4 css, js html에 적용
+### 2.4 css, js HTML 문서에 적용
 
 먼저 해당 css와 js를 적용하고 싶은 html 파일을 찾는다. 그리고 맨 윗줄에 아래와 같이 적는다. 
 
