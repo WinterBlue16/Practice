@@ -6,13 +6,13 @@
 
 <img width="240" alt="atom" src="https://user-images.githubusercontent.com/58945760/98442653-2ca0d880-2149-11eb-9db0-e429a6750dfd.png" style="zoom: 67%;" >
 
-<img src="https://user-images.githubusercontent.com/58945760/98442657-39253100-2149-11eb-81d4-77ab2bb254d6.png" alt="unnamed" style="zoom:33%;" />
+<img src="https://user-images.githubusercontent.com/58945760/98442657-39253100-2149-11eb-81d4-77ab2bb254d6.png" alt="unnamed" style="zoom:20%;" />
 
 ## 0. 사전 설치
 
 Atom 설치는 생략합니다. 이하의 내용에서는 웹 서비스를 개발할 수 있는 최소한의 환경을 세팅하는 법부터 설명합니다. 앞의 프로그램 외 아무것도 설치가 되어있지 않은 상황이라면 1번으로, 이미 work_django 폴더, 가상환경이 설치되어 있다면 2번으로 GO!
 
-## 1. 환경 세팅
+## 1. 초기 환경 세팅
 
 ```shell
 $ cd / # 한 방에 C:까지 나갈 수 있다!
@@ -28,8 +28,19 @@ $ pip install django==2.2.6 # django 설치!
 
 ## 2. 새로운 프로젝트(홈페이지) 만들기
 
+이미 가상환경과 django 설치 등 환경 세팅이 완료된 상태라면 아래의 코드부터 참고하면 된다. 
+
 ```shell
-$ django-admin startproject sample_site # sample_site이라는 새로운 프로젝트(웹페이지) 생성, sample_site 폴더 생성
+$ cd / # C:로 이동
+$ cd work_django 
+$ cd django_mldl # 작업 폴더로 이동
+$ django_env\Scripts\activate # 가상 환경 활성화
+```
+
+
+
+```shell
+$ django-admin startproject sample_page # sample_page라는 새로운 프로젝트(웹페이지) 생성, sample_page 폴더 생성
 ```
 
 
@@ -39,12 +50,12 @@ $ django-admin startproject sample_site # sample_site이라는 새로운 프로�
 ├── 📂 work_django
 └── 📂 django_mldl
 └── 📂 sample_site
-    ├── 📂 sample_site
+    ├── 📂 sample_page
     |    ├── 📂 templates
     |        ├── 📄 default.html
     |        └── 📄 index.html
     ├── 📂 static
-    |    └── 📂 sample_site
+    |    └── 📂 sample_page
     |         ├── 📄 style.js
     |         └── 📄 style.css
     |        
@@ -59,13 +70,22 @@ $ django-admin startproject sample_site # sample_site이라는 새로운 프로�
 
 ### 2.1 기본 
 
-`settings.py` 수정
+- `settings.py` 수정 및 추가
+
+```
+LANGUAGE_CODE = 'en-us' -> 'ko-kr'로 수정
+TIME_ZONE = 'UTC' -> 'Asia/Seoul'로 수정
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') 추가
+```
+
+
 
 ```shell
 $ python manage.py startapp sample_site
 ```
 
-Atom에서 `settings.py` 수정
+- Atom에서 `settings.py` 수정
 
 ```shell
 $ cd /
