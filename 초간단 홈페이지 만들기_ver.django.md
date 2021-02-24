@@ -82,6 +82,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') 추가
 
 
 ```shell
+$ cd sample_page # sample_page 폴더로 이동
 $ python manage.py startapp sample_site
 ```
 
@@ -97,13 +98,71 @@ $ python manage.py runserver # 생성한 프로젝트 로컬에서 확인
 
 ### 2.2 기초
 
-Atom에서 `urls.py`, `views.py` 수정
+- Atom에서 `urls.py` 수정
 
-Template 파일 만들기 => 📂sample_site 내 📂templates 폴더 생성 => 📂templates 폴더 안에 sample_site 생성 => default.html 생성
+```python
+from django.contrib import admin
+from django.urls import path
+from sample_site import views # 추가!
+
+urlpatterns = [
+    path('admin/', admin.site.urls), # 관리자 페이지
+    path('default/', views.result) # 추가! # 새로 만들 페이지
+]
+```
+
+
+
+- `views.py` 수정
+
+```python
+from django.shortcuts import render
+
+# Create your views here.
+def result(request):
+    return render(request, 'sample_site/default.html') # default.html 페이지로 이동
+```
+
+
+
+- Template 파일 만들기 => 📂sample_site 내 📂templates 폴더 생성 => 📂templates 폴더 안에 sample_site 생성 => default.html 생성
+
+```html
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test Page</title>
+  </head>
+  <body>
+    <h1>아직 페이지가 만들어지지 않았습니다.</h1>
+  </body>
+</html>
+
+```
+
+default 페이지를 이렇게 만들어 놓은 후 cmd로 돌아와 runserver를 실행한다.
 
 ```shell 
 $ python manage.py runserver # 수정한 웹페이지 확인, 디버깅
 ```
+
+이렇게 하고 http://127.0.0.1:8000/로 들어가면 404 에러가 나 있을 것이다.  http://127.0.0.1:8000/default/ 로 들어가야 default.html이 제대로 반영된 것을 볼 수 있다. 만약 원래 주소에 이 페이지가 뜨게 하고 싶다면 아래와 같이 urls.py를 수정하면 된다. 
+
+```python
+from django.contrib import admin
+from django.urls import path
+from sample_site import views 
+
+urlpatterns = [
+    path('admin/', admin.site.urls), # 관리자 페이지
+    path('', views.result) # '' 따옴표 사이를 빈 공간으로 두면 http://127.0.0.1:8000/에 default.html이 그대로 표시된다. 
+]
+```
+
+
+
+
 
 ### 2.3 css, js 추가
 
