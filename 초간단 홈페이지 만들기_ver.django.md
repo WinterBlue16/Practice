@@ -83,7 +83,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static') 추가
 
 ```shell
 $ cd sample_page # sample_page 폴더로 이동
-$ python manage.py startapp sample_site
+$ python manage.py startapp sample_site 
+
+# 앱이 여러 개인 경우
+$ cd apps
+$ django-admin startapp app1 # app2, app3...
 ```
 
 - Atom에서 `settings.py` 수정
