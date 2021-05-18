@@ -21,7 +21,7 @@ $ cd work_django
 $ mkdir django_mldl # django_mldl 폴더 만들기
 $ cd django_mldl
 $ pip install virtualenv==16.7.7 # 가상환경을 만들어주는 라이브러리 설치
-$ virtual django_env # django_env라는 이름의 가상 환경 생성
+$ virtualenv django_env # django_env라는 이름의 가상 환경 생성
 $ django_env\Scripts\activate # Scripts 폴더 내의 activate 파일 실행==가상환경 활성화
 $ pip install django==2.2.6 # django 설치!
 ```
